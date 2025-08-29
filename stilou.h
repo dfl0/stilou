@@ -12,7 +12,8 @@ typedef struct {
 
 Stilou_Canvas stilou_create_canvas(uint32_t *pixels, size_t width, size_t height);
 void stilou_fill_canvas(Stilou_Canvas canvas, uint32_t color);
-void stilou_draw_pixel(Stilou_Canvas canvas, size_t x, size_t y, uint32_t color);
+void stilou_draw_pixel(Stilou_Canvas canvas, int x, int y, uint32_t color);
+void stilou_fill_rect(Stilou_Canvas canvas, int x, int y, size_t w, size_t h, uint32_t color);
 
 #endif // STILOU_H_
 
@@ -32,9 +33,17 @@ void stilou_fill_canvas(Stilou_Canvas canvas, uint32_t color) {
     }
 }
 
-void stilou_draw_pixel(Stilou_Canvas canvas, size_t x, size_t y, uint32_t color) {
-    if (x < canvas.width && y < canvas.height) {
+void stilou_draw_pixel(Stilou_Canvas canvas, int x, int y, uint32_t color) {
+    if (x >= 0 && y >= 0 && x < (int)canvas.width && y < (int)canvas.height) {
         canvas.pixels[y*canvas.width + x] = color;
+    }
+}
+
+void stilou_fill_rect(Stilou_Canvas canvas, int x, int y, size_t w, size_t h, uint32_t color) {
+    for (int r = y; r < y + (int)h; ++r) {
+        for (int c = x; c < x + (int)w; ++c) {
+            stilou_draw_pixel(canvas, c, r, color);
+        }
     }
 }
 
