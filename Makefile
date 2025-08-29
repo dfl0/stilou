@@ -10,8 +10,8 @@ all: $(BINS)
 demo: $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@ $(LIBS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+%.o: %.c stilou.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(BINS) $(OBJS)
