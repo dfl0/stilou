@@ -35,3 +35,7 @@ Run it with:
 ```console
 $ ./demo
 ```
+
+![demo](./demo.gif)
+
+_Note that the above is a GIF, hence the limited frame rate._
