@@ -100,6 +100,7 @@ int main(void) {
 
         // start drawing
         stilou_fill_canvas(canvas, 0x202020FF); // (clear screen)
+        stilou_fill_circle(canvas, 300, 200, 100, 0x2020F0FF);
         stilou_fill_rect(canvas, x, y, rect_w, rect_h, 0xF02020FF);
 
         // show the drawing
