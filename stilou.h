@@ -53,7 +53,7 @@ void stilou_fill_circle(Stilou_Canvas canvas, int x, int y, size_t radius, uint3
         for (int c = x - (int)radius; c < x + (int)radius; ++c) {
             int dx = c - x;
             int dy = r - y;
-            if (dx*dx + dy*dy < radius*radius) {
+            if (dx*dx + dy*dy < (int)(radius*radius)) {
                 stilou_draw_pixel(canvas, c, r, color);
             }
         }
